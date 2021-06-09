@@ -50,6 +50,7 @@ $RECYCLE.BIN/
 /wp-content/themes/index.php
 /wp-includes/
 /vendor/
+/node_modules
 /index.php
 /license.txt
 /readme.html
@@ -84,3 +85,4 @@ wp-config.php
 # uncomment the next line
 #/wp-content/themes
 # End of https://www.toptal.com/developers/gitignore/api/wordpress,windows,visualstudiocode
+node_modules
