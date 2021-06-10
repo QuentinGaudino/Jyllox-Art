@@ -10,16 +10,15 @@
     <?php wp_body_open(); ?>
 
 <header>
-<nav>
-    <?php
-    wp_nav_menu( array(
-        'theme_location'    => 'menu-top',
-        'depth'             => 2,
-        'container'         => 'div',
-        'container_class'   => '',
-        'container_id'      => '',
-        'menu_class'        => '',
-    ) );
-    ?>
-</nav>
+    <div class="menu_all">
+        <div class="site-logo-container">
+			<?php the_custom_logo() ?>
+        </div>
+        <?php
+        wp_nav_menu( [
+            'theme_location'    => 'menu-top',
+            'container'         => 'nav',
+        ]);
+        ?>
+    </div>
 </header>

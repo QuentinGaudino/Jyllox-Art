@@ -16,3 +16,111 @@ body{
     padding: 0;
 }
 
+h1{
+    text-align: center;
+}
+
+header {
+    background-color: #e76f51;
+    box-shadow:
+    0 7.9px 2.2px rgba(0, 0, 0, 0.056),
+    0 14.2px 5.3px rgba(0, 0, 0, 0.067),
+    0 19.1px 10px rgba(0, 0, 0, 0.071),
+    0 23.1px 17.9px rgba(0, 0, 0, 0.072),
+    0 28.6px 33.4px rgba(0, 0, 0, 0.07),
+    0 50px 80px rgba(0, 0, 0, 0.07);
+
+}
+
+.derniersTableaux{
+    margin: 0 3rem;
+    text-align: center;
+
+}
+
+.menu_all{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+
+    align-items: center;
+}
+
+#menu-menu-principal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+}
+
+#menu-menu-principal a{
+    margin: 0 2rem;
+    padding: 0 1rem;
+    text-decoration: none;
+    color: #264653;
+    font-size: 1.3rem;
+    border: solid 1px #264653;
+    border-radius: 1rem;
+}
+
+#menu-menu-principal a:hover {
+    background-color: #264653;
+    color: white;
+    border: solid 2px black;
+    font-size: 1.5rem;
+}
+
+footer {
+    background-color: #e76f51;
+    padding: 1rem;
+
+}
+
+footer ul{
+    list-style-type: none;
+    margin-block-end: 0;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.artist-card{
+    text-align: center;
+    padding: 2rem;
+}
+
+.artist-card__items{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+
+}
+
+.artist-card__items_item{
+    list-style-type: none;
+    padding: 0 0.5rem;
+}
+
+.artist-card__items_item a, i{
+    text-decoration: none;
+    color: #2a9d8f;
+}
+
+.artist-card__button{
+    margin: 0 2rem;
+    padding: 0 1rem;
+    text-decoration: none;
+    background-color: #264653;
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+}

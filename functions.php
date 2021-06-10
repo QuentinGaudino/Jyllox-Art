@@ -14,9 +14,8 @@ function crb_load() {
 add_action('wp_enqueue_scripts', function () {
 	//CSS
     wp_enqueue_style('slick-css', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.css', [], wp_get_theme()->get('Version'));
+    wp_enqueue_style('font-awesome-css', get_template_directory_uri() . '/vendor/components/font-awesome/css/all.min.css', [], wp_get_theme()->get('Version'));
     wp_enqueue_style('theme-style', get_template_directory_uri() . '/style.css', [], wp_get_theme()->get('Version'));
-	wp_enqueue_style('header-style', get_template_directory_uri() . '/styles/header.css', [], wp_get_theme()->get('Version'));
-    wp_enqueue_style('footer-style', get_template_directory_uri() . '/styles/footer.css', [], wp_get_theme()->get('Version'));
 
 	//JS
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/node_modules/jquery/dist/jquery.min.js', [], '1.0.0', true );
@@ -53,6 +52,8 @@ function crb_attach_theme_options() {
         ->add_fields( array(
             Field::make( 'text', 'phone', 'Téléphone' ),
             Field::make( 'text', 'email', 'Email' ),
+            Field::make( 'text', 'title', 'Titre de la boutique' ),
+            Field::make( 'text', 'subtitle', 'Sous-titre de l\'accueil' ),
         ) );
 }
 
@@ -60,3 +61,6 @@ add_action('after_switch_theme', 'my_rewrite_flush');
 function my_rewrite_flush() {
 	flush_rewrite_rules(); // Actualiser les permaliens
 };
+
+//Chargement des CPT
+require_once __DIR__ . '/../post-types/about.php';
