@@ -20,6 +20,10 @@ h1{
     text-align: center;
 }
 
+h2{
+    text-align: center;
+}
+
 header {
     background-color: #e76f51;
     box-shadow:
@@ -89,9 +93,16 @@ footer ul li a{
     color: black;
 }
 
+.artists-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .artist-card{
     text-align: center;
     padding: 2rem;
+    max-width: 40%;
+    margin: 5%;
 }
 
 .artist-card__items{
@@ -101,8 +112,6 @@ footer ul li a{
     align-items: center;
     justify-content: center;
     padding: 0;
-
-
 }
 
 .artist-card__items_item{
@@ -123,4 +132,10 @@ footer ul li a{
     color: white;
     font-size: 1.3rem;
     border-radius: 1rem;
+}
+
+.slick-initialized .slick-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

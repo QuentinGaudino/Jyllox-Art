@@ -3,6 +3,7 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
+//Ajout de Carbon Fields
 add_action('after_setup_theme', 'crb_load');
 function crb_load() {
 	require_once('vendor/autoload.php');
@@ -46,6 +47,7 @@ add_action('after_setup_theme', function () {
 });
 
 
+//Options du thème
 add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
 function crb_attach_theme_options() {
 	Container::make( 'theme_options', __( 'Options' ) )
@@ -63,4 +65,20 @@ function my_rewrite_flush() {
 };
 
 //Chargement des CPT
-require_once __DIR__ . '/../post-types/about.php';
+require_once __DIR__ . '/post-types/artist.php';
+
+//Ajout d'un artiste sur les produits
+add_action('carbon_fields_register_fields', function() {
+
+		Container::make('post_meta', 'Caractéristiques produit')
+        ->where('post_type', '=', 'product')
+        ->add_fields([
+			Field::make( 'association', 'crb_association', __( 'Association' ) )
+				->set_types( array(
+					array(
+						'type'      => 'post',
+						'post_type' => 'artist',
+					)
+			))
+		]);
+});
