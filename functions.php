@@ -25,7 +25,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 
-//Ajout du title-tag
+//Config du theme
 add_action('after_setup_theme', function () {
     $defaults = array(
         'height'               => 100,
@@ -64,6 +64,20 @@ function my_rewrite_flush() {
 	flush_rewrite_rules(); // Actualiser les permaliens
 };
 
+//Ajout d'une sidebar
+add_action( 'widgets_init', 'jylloxart_widgets_init' );
+function jylloxart_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Primary Sidebar', 'jylloxart' ),
+        'id'            => 'sidebar-1',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+
+}
+
 //Chargement des CPT
 require_once __DIR__ . '/post-types/artist.php';
 
@@ -82,3 +96,5 @@ add_action('carbon_fields_register_fields', function() {
 			))
 		]);
 });
+
+

@@ -34,14 +34,13 @@ get_header();
         <?php wp_reset_postdata() ?>
     </section>
 
+
+
     <h2 class="artist-card__title">Les artistes</h2>
     <section class="artists-list">
         <?php while ($artist_query->have_posts()) : $artist_query->the_post(); ?>
             <div class="artist-card">
-                <h3 class="artist-card__name">
-                    <?= carbon_get_the_post_meta('firstname'); ?>
-                    <?= carbon_get_the_post_meta('lastname'); ?>
-                </h3>
+                <h3 class="artist-card__name"><?= the_title() ?></h3>
                 <div class="artist-card__thumbnail">
                     <?php the_post_thumbnail('thumbnail') ?>
                 </div>

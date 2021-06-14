@@ -36,6 +36,10 @@ header {
 
 }
 
+main{
+    padding: 3rem 10%;
+}
+
 .derniersTableaux{
     margin: 0 3rem;
     text-align: center;
@@ -48,7 +52,6 @@ header {
     justify-content: space-between;
     list-style-type: none;
     margin: 0;
-
     align-items: center;
 }
 
@@ -80,7 +83,15 @@ header {
 footer {
     background-color: #e76f51;
     padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+footer .widget-area{
+    border: #264653 solid 2px;
+    border-radius: 1rem;
+    padding: 0 1rem;
 }
 
 footer ul{
@@ -93,6 +104,48 @@ footer ul li a{
     color: black;
 }
 
+.artist_background{
+    min-height: 80vh;
+    background: center no-repeat;
+    background-size: cover;
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.artist_artist{
+    text-align: center;
+    width: 50%;
+    padding: 0 5rem;
+    background: linear-gradient(to right, rgba(255,255,255,0.90) 0%,rgba(255,255,255,0.5) 100%);
+    border-radius: 2rem;
+}
+
+.artist_artist h2{
+    font-size: 2rem;
+}
+
+.artist_artist ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.artist__items_item{
+    margin-right: 2rem;
+}
+
+.artist__terms{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.artist__terms_term{
+    margin: 0 1rem;
+}
+
 .artists-list{
     display: flex;
     flex-direction: row;
@@ -100,9 +153,21 @@ footer ul li a{
 }
 .artist-card{
     text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 2rem;
-    max-width: 40%;
+    width: 30%;
     margin: 5%;
+    border: solid 1px #264653;
+    border-radius: 1rem;
+    box-shadow:
+        0 13.8px 29.4px rgba(0, 0, 0, 0.053),
+        0 15.8px 34px rgba(0, 0, 0, 0.077),
+        0 16.5px 36.1px rgba(0, 0, 0, 0.095),
+        0 17.4px 38.7px rgba(0, 0, 0, 0.113),
+        0 20.3px 44.9px rgba(0, 0, 0, 0.137),
+        0 40px 80px rgba(0, 0, 0, 0.19)
+;
 }
 
 .artist-card__items{
@@ -138,4 +203,35 @@ footer ul li a{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tableaux_artiste{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableau{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10%;
+    
+}
+
+.tableau a{
+    text-decoration: none;
+    color: white;
+    background-color: #264653;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.tableau img{
+    width: 100%;
+    height: auto;
 }
