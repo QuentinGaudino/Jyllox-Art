@@ -38,31 +38,21 @@ global $product;
 	<?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
 
 
-	<!-- Tentative infructueuse d'afficher l'artiste du tableau -->
+	<!-- Affichage du nom de l'artiste-->
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-		<?php 
-		// $artiste = new WP_Query( [
-		// 	'post_type' => 'artist',
-		// 	'posts_per_page' => 1,
-		// 	'meta_query' => array(
-		// 		array(
-		// 			'key' => 'crb_association',
-		// 			'carbon_field_property' => 'id',
-		// 			'compare' => '==',
-		// 			'value' => get_the_ID(),
-		// 		),
-		// 	),
-		// ] );
-		?>
-		
-	<?php endwhile; else : ?>
-        <p>Unknow Artist</p>
-		
-    <?php endif; ?> -->
-
+	<?php $direct_results = carbon_get_post_meta( get_the_ID(), 'crb_association' ); ?>
+	<?php $id_artist = $direct_results[0]['id']; ?>
+	<?php $name_artist = get_post($id_artist)->post_title; ?>
+	<?php $url_artist = get_post($id_artist)->guid ?>
 	
+	<?php if ($name_artist) : ?>
+	
+		<p>Artiste: <a href="<?= $url_artist ?>"><?= $name_artist ?></a></p>
+
+	<?php else: ?>
+		<p>Artiste inconnu</p>
+	<?php endif ?>
+
 	<?php do_action( 'woocommerce_product_meta_end' ); ?>
 
 </div>

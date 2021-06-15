@@ -20,10 +20,10 @@ get_header();
                         'carbon_field_property' => 'id',
                         'compare' => '==',
                         'value' => get_the_ID(),
+                        ),
                     ),
-                ),
-            ] );
-        ?>
+                ] );
+            ?>
 
             <h3 class="artist__name">Aka: 
                 <?= carbon_get_the_post_meta('firstname'); ?>
