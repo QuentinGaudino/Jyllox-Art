@@ -59,12 +59,13 @@ function crb_attach_theme_options() {
         ) );
 }
 
+//Actualise les permaliens lors de l'activation du thème.
 add_action('after_switch_theme', 'my_rewrite_flush');
 function my_rewrite_flush() {
 	flush_rewrite_rules(); // Actualiser les permaliens
 };
 
-//Ajout d'une sidebar
+//Ajout d'une sidebar/widget
 add_action( 'widgets_init', 'jylloxart_widgets_init' );
 function jylloxart_widgets_init() {
     register_sidebar( array(
@@ -96,5 +97,12 @@ add_action('carbon_fields_register_fields', function() {
 			))
 		]);
 });
+
+//Ajout des catégories produits au CPT artist/ Remplace la taxonomie mise en place dans le CPT
+add_filter( 'woocommerce_taxonomy_objects_product_cat', function($object_types){
+    array_push($object_types, 'artist');
+    return $object_types;
+
+} );
 
 

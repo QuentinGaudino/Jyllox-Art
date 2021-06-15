@@ -1,3 +1,4 @@
+// Configuration de Slick
 jQuery(document).ready(function($) {
 
     $('.derniersTableaux__slider').slick({

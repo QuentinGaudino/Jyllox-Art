@@ -1,9 +1,11 @@
 <?php
+//Requete des 3 derniers tableaux rentrés en base
 $derniersTableaux = new WP_Query( [
     'post_type' => 'product',
     'posts_per_page' => 3
 ] );
 
+//Requete de tout les artistes
 $artist_query = new WP_Query([
 	'post_type' => 'artist',
 	'posts_per_page' => -1
@@ -18,6 +20,7 @@ get_header();
         <h2><?php echo carbon_get_theme_option('subtitle') ?></h2>
         <?php if ( $derniersTableaux->have_posts() ) : ?>
 
+<!-- Slider -->
         <div class="derniersTableaux__slider">
             <?php while ( $derniersTableaux->have_posts() ) : $derniersTableaux->the_post(); ?> 
             
@@ -35,7 +38,7 @@ get_header();
     </section>
 
 
-
+<!-- Cartes artistes -->
     <h2 class="artist-card__title">Les artistes</h2>
     <section class="artists-list">
         <?php while ($artist_query->have_posts()) : $artist_query->the_post(); ?>

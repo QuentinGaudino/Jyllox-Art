@@ -10,6 +10,7 @@ get_header();
             <h2><?= get_the_title() ?></h2>
 
             <?php 
+            //Requete de la totalité des tableaux de l'artiste
             $tableaux = new WP_Query( [
                 'post_type' => 'product',
                 'posts_per_page' => -1,
@@ -44,6 +45,7 @@ get_header();
                     <?php endif ?>
             <p class="artist__content"><?= carbon_get_the_post_meta('about'); ?></p>
 
+            <!-- Affichage des "mouvements" de l'artiste / catégories -->
             <?php $mouvements = get_the_terms(get_the_ID(), 'genre'); ?>
             <?php if ($mouvements) : ?>
                 <h3>Ses mouvements</h3>

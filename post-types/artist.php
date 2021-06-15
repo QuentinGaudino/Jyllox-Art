@@ -4,9 +4,11 @@ use Carbon_Fields\Carbon_Fields;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
+
+//Création du CPT 'artist'
+
 add_action('init', function() {
 	register_post_type('artist', [
-        //Déclaration du CPT "artiste"
 		'labels' => [
 			'name'                  => _x( 'Artistes', 'Post type general name', 'jylloxart' ),
 			'singular_name'         => _x( 'Artiste', 'Post type singular name', 'jylloxart' ),
@@ -38,8 +40,11 @@ add_action('init', function() {
         'rewrite' => ['slug' => 'artist'],
 		'supports' => ['title', 'thumbnail', 'excerpt']
 	]);
-    // Déclaration de la taxonomie "Genre" associé au CPT "artiste"
-    register_taxonomy('genre', ['artist'], [
+
+
+    // Déclaration de la taxonomie "Genre" associé au CPT "artiste" (La taxonomie n'ets plus utilisée mais reste ici pour le besoin de l'exercice)
+    
+	register_taxonomy('genre', ['artist'], [
         'labels' => [
 			'name'              => _x( 'Genres', 'taxonomy general name', 'jylloxart' ),
 			'singular_name'     => _x( 'Genre', 'taxonomy singular name', 'jylloxart' ),
@@ -58,7 +63,9 @@ add_action('init', function() {
     ] );
 });
 
-//Ajout de custom fields
+
+//Ajout de custom fields au CPT 'artist'
+
 add_action('carbon_fields_register_fields', function() {
 	
     Container::make('post_meta', 'Caractéristiques artiste')
